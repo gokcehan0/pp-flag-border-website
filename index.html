@@ -8,51 +8,67 @@
   </script>
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
   <style>
+    html, body {
+      height: 100vh;
+      margin: 0;
+      padding: 0;
+      overflow: hidden; 
+    }
     .photo-container img {
       border-radius: 50%;
       object-fit: cover;
     }
   </style>
 </head>
-<body class="bg-gray-900 text-gray-100 flex flex-col justify-center items-center min-h-screen overflow-x-hidden p-4">
+<body class="bg-gray-900 text-gray-100 flex flex-col justify-center items-center w-screen h-screen overflow-hidden p-4">
 
-  <div
-    class="photo-container relative rounded-full overflow-hidden bg-gray-800 flex justify-center items-center mb-4 w-[90vw] max-w-[240px] aspect-square"
-  >
-    <div
-      id="background"
-      class="flag absolute top-0 left-0 w-full h-full bg-cover rounded-full filter brightness-50"
-    ></div>
+  <div class="photo-container relative w-60 h-60 rounded-full overflow-hidden bg-gray-800 flex justify-center items-center mb-4 max-w-full">
+    <div id="background" class="flag absolute top-0 left-0 w-full h-full bg-cover rounded-full filter brightness-50"></div>
     <img
       id="photo"
       alt=" "
-      class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[85%] h-[85%] object-cover rounded-full"
+      class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-52 h-52"
     />
   </div>
 
-  <div class="upload-container flex flex-col items-center w-full max-w-xs px-4">
-    <label class="mt-5 mb-2 text-gray-300 font-semibold text-center w-full">Upload Photo</label>
+  <div class="upload-container flex flex-col items-center w-full max-w-xs">
+    <label class="mt-5 mb-2 text-gray-300 font-semibold">Upload Photo</label>
     <input type="file" id="photoInput" accept="image/*" class="hidden" />
     <button
       onclick="document.getElementById('photoInput').click()"
-      class="mt-2 px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded focus:outline-none focus:ring-2 focus:ring-blue-500 w-full max-w-xs"
+      class="mt-2 px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
     >
       Choose Photo
     </button>
 
-    <label class="mt-10 mb-2 text-gray-300 font-semibold text-center w-full">Select Country</label>
+    <label class="mt-10 mb-2 text-gray-300 font-semibold">Select Country</label>
     <select
       id="countrySelect"
       class="px-3 py-2 w-full bg-gray-800 border border-gray-600 rounded text-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-500"
     >
-      <!-- options here -->
+      <option value="" class="bg-gray-900 text-gray-100">Select</option>
+      <option value="us" class="bg-gray-900 text-gray-100">United States</option>
+      <option value="gb" class="bg-gray-900 text-gray-100">United Kingdom</option>
+      <option value="ca" class="bg-gray-900 text-gray-100">Canada</option>
+      <option value="au" class="bg-gray-900 text-gray-100">Australia</option>
+      <option value="it" class="bg-gray-900 text-gray-100">Italy</option>
+      <option value="il" class="bg-gray-900 text-gray-100">Israel</option>
+      <option value="tr" class="bg-gray-900 text-gray-100">Turkey</option>
+      <option value="ps" class="bg-gray-900 text-gray-100">Palestine</option>
+      <option value="de" class="bg-gray-900 text-gray-100">Germany</option>
+      <option value="fr" class="bg-gray-900 text-gray-100">France</option>
+      <option value="jp" class="bg-gray-900 text-gray-100">Japan</option>
+      <option value="cn" class="bg-gray-900 text-gray-100">China</option>
+      <option value="br" class="bg-gray-900 text-gray-100">Brazil</option>
+      <option value="in" class="bg-gray-900 text-gray-100">India</option>
+      <option value="ru" class="bg-gray-900 text-gray-100">Russia</option>
     </select>
   </div>
 
-  <div class="download-container mt-6 w-full max-w-xs px-4">
+  <div class="download-container mt-6">
     <button
       id="downloadBtn"
-      class="w-full px-6 py-2 bg-green-600 hover:bg-green-700 text-white rounded focus:outline-none focus:ring-2 focus:ring-green-500"
+      class="px-6 py-2 bg-green-600 hover:bg-green-700 text-white rounded focus:outline-none focus:ring-2 focus:ring-green-500"
     >
       Download
     </button>
@@ -61,5 +77,4 @@
   <canvas id="canvas" style="display:none;"></canvas>
   <script src="script.js"></script>
 </body>
-
 </html>
