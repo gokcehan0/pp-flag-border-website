@@ -1,41 +1,58 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Flag border</title>
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-    <style>
-        .photo-container img {
-            border-radius: 50%;
-            object-fit: cover;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <title>Flag Overlay</title>
+  <script>
+    const flagsBaseUrl = "https://flagcdn.com/w320/";
+  </script>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <style>
+    .photo-container img {
+      border-radius: 50%;
+      object-fit: cover;
+    }
+  </style>
 </head>
 <body class="flex flex-col justify-center items-center h-screen bg-gray-100">
 
-    <div class="photo-container w-60 h-60 rounded-full overflow-hidden bg-white flex justify-center items-center relative mb-4">
-        <div id="background" class="flag absolute top-0 left-0 w-full h-full bg-cover rounded-full"></div>
-        <img id="photo" alt=" " class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-52 h-52">
-    </div>
-    <div class="upload-container mt-4 flex flex-col items-center">
-        <label for="photoInput" class="mt-5">Upload Photo</label>
-        <input type="file" id="photoInput" accept="image/*" style="display: none;" class="mb-2">
-    
-        <label for="backgroundInput" class="mt-10">Upload Background</label>
-        <input type="file" id="backgroundInput" accept="image/*" style="display: none;" class="mb-2">
-    
-        <label for="countrySelect" class="mt-10">Flag</label>
-        <select id="countrySelect" class="px-2 py-1 border border-gray-300 rounded mb-2">
-            <option value="">Select</option>
-        </select>
-    </div>
-    <div class="download-container mt-4">
-        <button id="downloadBtn" class="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 focus:outline-none">Download</button>
-    </div>
+  <div class="photo-container w-60 h-60 rounded-full overflow-hidden bg-white flex justify-center items-center relative mb-4">
+    <div id="background" class="flag absolute top-0 left-0 w-full h-full bg-cover rounded-full"></div>
+    <img id="photo" alt=" " class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-52 h-52">
+  </div>
 
-    <canvas id="canvas" style="display:none;"></canvas>
+  <div class="upload-container mt-4 flex flex-col items-center">
+    <label class="mt-5">Upload Photo</label>
+    <input type="file" id="photoInput" accept="image/*" style="display: none;">
+    <button onclick="document.getElementById('photoInput').click()" class="mt-2 px-4 py-1 bg-blue-500 text-white rounded">Choose Photo</button>
 
-<script src="script.js"></script>
+    <label class="mt-10">Select Country</label>
+    <select id="countrySelect" class="px-2 py-1 border border-gray-300 rounded mt-2">
+      <option value="">Select</option>
+      <option value="us">United States</option>
+        <option value="gb">United Kingdom</option>
+        <option value="ca">Canada</option>
+        <option value="au">Australia</option>       
+        <option value="it">Italy</option>
+        <option value="il">Israel</option>
+        <option value="tr">Turkey</option>
+        <option value="ps">Palestine</option>
+
+      <option value="de">Germany</option>
+      <option value="fr">France</option>
+      <option value="jp">Japan</option>
+      <option value="cn">China</option>
+      <option value="br">Brazil</option>
+      <option value="in">India</option>
+      <option value="ru">Russia</option>
+    </select>
+  </div>
+
+  <div class="download-container mt-6">
+    <button id="downloadBtn" class="px-4 py-2 bg-green-600 text-white rounded hover:bg-green-700">Download</button>
+  </div>
+
+  <canvas id="canvas" style="display:none;"></canvas>
+  <script src="script.js"></script>
 </body>
 </html>
