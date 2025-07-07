@@ -23,9 +23,17 @@ Easily create a profile picture with your country flag overlay! 🌍✨
 ## Supported Flags
 🇺🇸 🇬🇧 🇨🇦 🇦🇺 🇮🇹 🇮🇱 🇹🇷 🇵🇸 🇩🇪 🇫🇷 🇯🇵 🇨🇳 🇧🇷 🇮🇳 🇷🇺
 
+
 ## Tech Stack
 - HTML, CSS (TailwindCSS)
 - JavaScript
+
+
+## Used API
+This project uses the [FlagCDN API](https://flagcdn.com/) to fetch country flags.
+
+## Project Link
+[Flag Overlay Profile Picture Generator](https://pp-flag-border-website.onrender.com/)
 
 ## License
 MIT
